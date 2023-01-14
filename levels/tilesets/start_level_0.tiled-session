@@ -1,0 +1,79 @@
+{
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "Dark_lvl4.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Dungeon Tile Set.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Terrain/terrain/земелька.tsx": {
+            "dynamicWrapping": false
+        },
+        "Terrain/terrain/что-то непонятное.tsx": {
+            "scaleInEditor": 1
+        },
+        "imgonline-com-ua-Resize-0jgXuUasBwPTni.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "terrain_tiles.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "terrain_tiles2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiles_packed.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "блоки.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "лунный цветок.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "трава.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/kattterina_i/OneDrive/Рабочий стол/platformer__decor/Terrain/Tilemap",
+    "last.imagePath": "C:/Users/kattterina_i/OneDrive/Рабочий стол",
+    "map.lastUsedExportFilter": "CSV files (*.csv)",
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+    ],
+    "project": "start_level_0.tiled-project",
+    "recentFiles": [
+        "лунный цветок.tsx",
+        "Terrain/terrain/что-то непонятное.tsx",
+        "Dark_lvl4.tsx",
+        "terrain_tiles.tsx",
+        "блоки.tsx",
+        "terrain_tiles2.tsx",
+        "imgonline-com-ua-Resize-0jgXuUasBwPTni.tsx",
+        "Dungeon Tile Set.tsx",
+        "tiles_packed.tsx",
+        "трава.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}

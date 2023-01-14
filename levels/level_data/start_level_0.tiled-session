@@ -1,0 +1,167 @@
+{
+    "activeFile": "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/level_data/level_01.tmx",
+    "expandedProjectPaths": [
+        "Terrain/terrain",
+        "Terrain"
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/level_data/Terrain/terrain/земелька.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/level_data/Terrain/terrain/цветок лунный.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/level_data/Terrain/terrain/что-то непонятное.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/level_data/level_01.tmx": {
+            "scale": 0.4847412109375,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 1454.3842860740365,
+                "y": 520.8964996222614
+            }
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/level_data/level_01.tmx#грибочки": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/level_data/грибочки.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/level_data/слаимы.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/level_data/ягодки.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/tilesets/грибочки.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/tilesets/цветок лунный.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/tilesets/что-то непонятное.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/tilesets/ягодки.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1
+        },
+        "Dark_lvl4.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Dungeon Tile Set.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Terrain/terrain/tiles_packed.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Terrain/terrain/земелька.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Terrain/terrain/цветок лунный.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Terrain/terrain/что-то непонятное.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "imgonline-com-ua-Resize-0jgXuUasBwPTni.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "level_01.tmx": {
+            "scale": 1,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 1897,
+                "y": 347.5
+            }
+        },
+        "terrain_tiles.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "terrain_tiles2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiles_packed.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "блоки.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "грибочки.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "киспузырь.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "лунный цветок.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "слаимы.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "слаймы аттакуют!.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "трава.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "фон_деревья.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "ягодки.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.externalTilesetPath": "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/tilesets",
+    "openFiles": [
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/level_data/level_01.tmx"
+    ],
+    "project": "start_level_0.tiled-project",
+    "recentFiles": [
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/level_data/level_01.tmx",
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/levels/tilesets/грибочки.tsx",
+        "level_01.tmx",
+        "tiles_packed.tsx",
+        "Terrain/terrain/tiles_packed.tsx",
+        "киспузырь.tsx",
+        "грибочки.tsx",
+        "ягодки.tsx",
+        "слаимы.tsx",
+        "слаймы аттакуют!.tsx",
+        "фон_деревья.tsx",
+        "Terrain/terrain/цветок лунный.tsx"
+    ]
+}
