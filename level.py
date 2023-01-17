@@ -4,10 +4,6 @@ import random
 from tile import *
 from support import import_csv_layout, import_cut_graphics, load_image, import_folder
 from settings import tile_size, screen_height, screen_width
-from player import Hero, Camera
-
-isjump = False
-jump_count = 0
 
 
 class Sky:
@@ -45,59 +41,8 @@ class Clouds:
         sprite = StaticTile(0, 0, 0, self.top)
         self.cloud_sprites.add(sprite)
 
-    def draw(self, surface, shift):
+    def draw(self, surface):
         self.cloud_sprites.draw(surface)
-
-
-# class Hero(pygame.sprite.Sprite):
-#     def __init__(self, terrain):
-#         # НЕОБХОДИМО вызвать конструктор родительского класса Sprite.
-#         # Это очень важно !!!
-#         super().__init__()
-#         self.image = load_image("boom.png")
-#         self.rect = self.image.get_rect()
-#         self.rect.x = 0
-#         self.rect.y = 60
-#         self.x = terrain.copy()
-#
-#     def update(self, event, x):
-#         global isjump, jump_count
-#         if not pygame.sprite.spritecollideany(self, self.x):
-#             if not pygame.sprite.spritecollideany(self, self.x):
-#                 self.rect.y += 5
-#                 if pygame.sprite.spritecollideany(self, self.x):
-#                     self.rect.y -= 5
-#                     isjump = False
-#                     jump_count = 0
-#
-#             if pygame.key.get_pressed()[pygame.K_LEFT] and self.rect.x > 0:
-#                 self.rect.x -= 10
-#                 if pygame.sprite.spritecollideany(self, self.x):
-#                     self.rect.x += 10
-#
-#             if pygame.key.get_pressed()[pygame.K_RIGHT] and self.rect.x < screen_width - self.image.get_rect().w:
-#                 self.rect.x += 10
-#                 if pygame.sprite.spritecollideany(self, self.x):
-#                     self.rect.x -= 10
-#
-#             # if pygame.key.get_pressed()[pygame.K_DOWN] and self.rect.y < screen_height - self.image.get_rect().h:
-#             #     self.rect.y += 10
-#             #     if pygame.sprite.spritecollideany(self, self.x):
-#             #         self.rect.y -= 10
-#             # if pygame.key.get_pressed()[pygame.K_UP] and self.rect.y > 0:
-#             #     self.rect.y -= 10
-#             #     if pygame.sprite.spritecollideany(self, self.x):
-#             #         self.rect.y += 10
-#             self.rect.x -= x
-#             if pygame.key.get_pressed()[pygame.K_SPACE] and jump_count == 0:
-#                 isjump = True
-#                 jump_count = 1
-#             if isjump and 0 < jump_count < 15:
-#                 self.rect.y -= 10
-#
-#                 jump_count += 1
-#         else:
-#             self.rect.y -= 10
 
 
 class Level:
@@ -105,12 +50,7 @@ class Level:
         # general setup
         self.display_surface = surface
         self.world_shift = 2
-        # self.current_x = None
 
-        # player_layout = import_csv_layout(level_data['player'])
-        self.player = pygame.sprite.GroupSingle()
-        self.goal = pygame.sprite.GroupSingle()
-        # self.player_setup(player_layout)
         # платформа
         terrain_layout = import_csv_layout(level_data['terrain'])
         self.terrain_sprites = self.create_tile_group(terrain_layout, 'terrain')
@@ -126,27 +66,29 @@ class Level:
         # traps
         traps = import_csv_layout(level_data['trap'])
         self.traps = self.create_tile_group(traps, 'trap')
+        # portail
+        portails = import_csv_layout(level_data['portail'])
+        self.portails = self.create_tile_group(portails, 'portail')
         # enemies
         enemies_l = import_csv_layout(level_data['enemies'])
         self.enemies_l = self.create_tile_group(enemies_l, 'enemies')
         # # fg_palms
         jump = import_csv_layout(level_data['jump'])
         self.jump = self.create_tile_group(jump, 'jump')
+        moonflower = import_csv_layout(level_data['bg'])
+        self.moonflower = self.create_tile_group(moonflower, 'bg')
         # # decoration
         self.sky = Sky()
         level_width = len(terrain_layout[0]) * tile_size
         self.water = Water(screen_height - 20, level_width)
         self.clouds = Clouds()
-        self.player_sp = self.create_tile_group(terrain_layout, 'pl')
+        self.player = pygame.sprite.GroupSingle()
+        self.goal = pygame.sprite.GroupSingle()
 
         # self.player_sp = self.create_tile_group(terrain_layout, 'pl')
 
     def create_tile_group(self, layout, type):
         sprite_group = pygame.sprite.Group()
-        if type == 'pl':
-            sprite = Hero(self.terrain_sprites)
-            sprite_group.add(sprite)
-            return sprite_group
         for row_index, row in enumerate(layout):
             for col_index, val in enumerate(row):
                 sprite = ''
@@ -163,8 +105,10 @@ class Level:
                     if type == 'jump':
                         if int(val) in [12, 14, 16, 18, 20, 22]:
                             sprite = Jump_m(tile_size, x, y - 10, "Картинки/jump_mushroom")
-                    # if type == 'bg_palms':
-                    #     sprite = Palm(tile_size, x, y, "maps/decor/terrain/palm_bg", 64)
+                    if type == 'portail':
+                        sprite = Tile(tile_size, x, y)
+                    if type == 'bg':
+                        sprite = Moonflower(tile_size, x, y, "Картинки/flowers", 90)
                     if type == 'coins':
                         sprite = AnimatedTile(tile_size, x, y, "Картинки/berry_coins")
                     if type == 'constraints':
@@ -180,30 +124,80 @@ class Level:
                         sprite_group.add(sprite)
         return sprite_group
 
-    # def player_setup(self, layout):
-    #     for row_index, row in enumerate(layout):
-    #         for col_index, val in enumerate(row):
-    #             x, y = col_index * tile_size, row_index * tile_size
-    #
-    #             if val == "0":
-    #                 print('players goes here')
-    #             if val == '1':
-    #                 hat_surface = load_image("maps/decor/character/hat.png")
-    #                 sprite = StaticTile(tile_size, x, y, hat_surface)
-    #                 self.goal.add(sprite)
+
+    def get_player_on_ground(self):
+        if self.player.sprite.on_ground:
+            self.player_on_ground = True
+        else:
+            self.player_on_ground = False
 
     def enemy_collision_reverse(self):
         for enemy in self.enemies_l.sprites():
             if pygame.sprite.spritecollide(enemy, self.constaints, False):
                 enemy.reverse()
 
-    def run(self, event):
-        # camera = Camera()
-        # for sprite in player:
-        #     camera.apply(sprite)
+    def camera(self):
+        player = self.player.sprite
+        player_x = player.rect.x
+        direction_x = player.direction.x
+
+        if player_x < screen_width / 4 and direction_x < 0:
+            self.world_shift = 5
+            player.speed = 0
+        elif player_x > screen_width - (screen_width / 4) and direction_x > 0:
+            self.world_shift = -5
+            player.speed = 0
+        else:
+            self.world_shift = 0
+            player.speed = 5
+
+    def horizontal(self):
+        player = self.player.sprite
+        player.rect.x += player.direction.x * player.speed
+        collidable_sprites = self.terrain_sprites.sprites()
+        for sprite in collidable_sprites:
+            if sprite.rect.colliderect(player.rect):
+                if player.direction.x < 0:
+                    player.rect.left = sprite.rect.right
+                    player.on_left = True
+                    self.current_x = player.rect.left
+                elif player.direction.x > 0:
+                    player.rect.right = sprite.rect.left
+                    player.on_right = True
+                    self.current_x = player.rect.right
+
+        if player.on_left and (player.rect.left < self.current_x or player.direction.x >= 0):
+            player.on_left = False
+        if player.on_right and (player.rect.right > self.current_x or player.direction.x <= 0):
+            player.on_right = False
+
+    def vertical(self):
+        player = self.player.sprite
+        player.apply_gravity()
+        collidable_sprites = self.terrain_sprites.sprites()
+
+        for sprite in collidable_sprites:
+            if sprite.rect.colliderect(player.rect):
+                if player.direction.y > 0:
+                    player.rect.bottom = sprite.rect.top
+                    player.direction.y = 0
+                    player.on_ground = True
+                elif player.direction.y < 0:
+                    player.rect.top = sprite.rect.bottom
+                    player.direction.y = 0
+                    player.on_ceiling = True
+
+        if player.on_ground and player.direction.y < 0 or player.direction.y > 1:
+            player.on_ground = False
+        if player.on_ceiling and player.direction.y > 0.1:
+            player.on_ceiling = False
+
+    def run(self):
         # decoration
         self.sky.draw(self.display_surface)
-        self.clouds.draw(self.display_surface, self.world_shift)
+        self.clouds.draw(self.display_surface)
+        self.moonflower.update(self.world_shift)
+        self.moonflower.draw(self.display_surface)
         # terrain
         self.terrain_sprites.update(self.world_shift)
         self.terrain_sprites.draw(self.display_surface)
@@ -218,6 +212,9 @@ class Level:
         # traps
         self.traps.update(self.world_shift)
         self.traps.draw(self.display_surface)
+
+        self.portails.update(self.world_shift)
+        self.portails.draw(self.display_surface)
         # грибы
         self.jump.update(self.world_shift)
         self.jump.draw(self.display_surface)
@@ -225,6 +222,11 @@ class Level:
         self.enemies_l.update(self.world_shift)
         self.enemy_collision_reverse()
         self.enemies_l.draw(self.display_surface)
-        # player
-        self.player_sp.draw(self.display_surface)
-        self.player_sp.update(event, self.world_shift)
+        self.camera()
+
+        self.player.update()
+        self.horizontal()
+        # self.get_player_on_ground()
+        self.vertical()
+        # self.create_landing_dust()
+        self.player.draw(self.display_surface)

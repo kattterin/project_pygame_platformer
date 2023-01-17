@@ -1,4 +1,6 @@
 from csv import reader
+from itertools import product
+
 from settings import tile_size
 import pygame
 import os
@@ -6,15 +8,20 @@ import sys
 from PIL import Image
 
 
+
 def import_picture(path):
+    """
+    промежуточная функция: изображение -> папка со спрайтами
+    """
     im = Image.open(path)
     x = 0
     for i in range(8):
         im_crop = im.crop((x, 0, x + 64, 64))
-        im_crop.save(f'Картинки/player/walk/{str(i + 1)}.png', quality=95)
+        im_crop.save(f'Картинки/player/run/{str(i + 1)}.png', quality=95)
         x += 64
 
 
+# import_picture("Картинки/герой бежит.png")
 
 
 def import_folder(path):
@@ -45,12 +52,11 @@ def import_cut_graphics(path):
     cut_tiles = []
     # for row, col in product(range(len(level)), range(len(level[0]))):
 
-    for row in range(tile_num_y):
-        for col in range(tile_num_x):
-            x, y = col * tile_size, row * tile_size
-            new_surf = pygame.Surface((tile_size, tile_size), flags=pygame.SRCALPHA)
-            new_surf.blit(surface, (0, 0), pygame.Rect(x, y, tile_size, tile_size))
-            cut_tiles.append(new_surf)
+    for row, col in product(range(tile_num_y), range(tile_num_x)):
+        x, y = col * tile_size, row * tile_size
+        new_surf = pygame.Surface((tile_size, tile_size), flags=pygame.SRCALPHA)
+        new_surf.blit(surface, (0, 0), pygame.Rect(x, y, tile_size, tile_size))
+        cut_tiles.append(new_surf)
 
     return cut_tiles
 
