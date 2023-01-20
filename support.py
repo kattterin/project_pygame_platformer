@@ -8,20 +8,19 @@ import sys
 from PIL import Image
 
 
+# def import_picture(path):
+#     """
+#     промежуточная функция: изображение -> папка со спрайтами
+#     """
+#     im = Image.open(path)
+#     x = 0
+#     for i in range(8):
+#         im_crop = im.crop((x, 0, x + 64, 64))
+#         im_crop.save(f'picture/enemy/{str(i + 1)}.png', quality=95)
+#         x += 64
+#
 
-def import_picture(path):
-    """
-    промежуточная функция: изображение -> папка со спрайтами
-    """
-    im = Image.open(path)
-    x = 0
-    for i in range(8):
-        im_crop = im.crop((x, 0, x + 64, 64))
-        im_crop.save(f'Картинки/player/run/{str(i + 1)}.png', quality=95)
-        x += 64
-
-
-# import_picture("Картинки/герой бежит.png")
+# import_picture("picture/claim.png")
 
 
 def import_folder(path):
@@ -50,7 +49,6 @@ def import_cut_graphics(path):
     tile_num_y = int(surface.get_size()[1] / tile_size)
 
     cut_tiles = []
-    # for row, col in product(range(len(level)), range(len(level[0]))):
 
     for row, col in product(range(tile_num_y), range(tile_num_x)):
         x, y = col * tile_size, row * tile_size

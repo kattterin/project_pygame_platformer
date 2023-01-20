@@ -11,7 +11,7 @@ class Hero(pygame.sprite.Sprite):
         # НЕОБХОДИМО вызвать конструктор родительского класса Sprite.
         # Это очень важно !!!
         super().__init__()
-        self.image = load_image("Картинки/player/walk/1.png")
+        self.image = pygame.transform.scale(load_image("Картинки/player/walk/1.png"), (32, 32))
         self.rect = self.image.get_rect()
         self.direction = pygame.math.Vector2(0, 0)
         self.rect.x = x

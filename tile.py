@@ -1,6 +1,6 @@
 import pygame
 from random import randint
-from support import import_folder, load_image, import_picture
+from support import import_folder
 
 
 class Player(pygame.sprite.Sprite):
@@ -8,20 +8,18 @@ class Player(pygame.sprite.Sprite):
         super().__init__()
         self.import_character_assets()
         self.frame_index = 0
-        self.animation_speed = 0.07
+        self.animation_speed = 0.1
         self.image = self.animations['walk'][self.frame_index]
         self.rect = self.image.get_rect(topleft=pos)
-        self.mask = pygame.mask.from_surface(self.image)
-
 
         # player movement
         self.direction = pygame.math.Vector2(0, 0)
-        self.speed = 8
+        self.speed = 5
         self.gravity = 0.8
         self.jump_speed = -16
+        self.jump_m = -22
 
         # player status
-        self.status = 'walk'
         self.facing_right = True
         self.on_ground = False
         self.on_ceiling = False
@@ -29,7 +27,7 @@ class Player(pygame.sprite.Sprite):
         self.on_right = False
 
     def import_character_assets(self):
-        character_path = 'Картинки/player/'
+        character_path = 'picture/player/'
         self.animations = {'walk': [], 'run': []}
 
         for animation in self.animations.keys():
@@ -50,8 +48,6 @@ class Player(pygame.sprite.Sprite):
         else:
             flipped_image = pygame.transform.flip(image, True, False)
             self.image = flipped_image
-        self.mask = pygame.mask.from_surface(self.image)
-
 
         # set the rect
         if self.on_ground and self.on_right:
@@ -79,7 +75,7 @@ class Player(pygame.sprite.Sprite):
         else:
             self.direction.x = 0
 
-        if keys[pygame.K_SPACE] and self.on_ground:
+        if keys[pygame.K_SPACE] and self.on_ground and not self.on_ceiling:
             self.jump()
 
     def get_status(self):
@@ -95,10 +91,16 @@ class Player(pygame.sprite.Sprite):
     def jump(self):
         self.direction.y = self.jump_speed
 
+    def jump_mushroom(self):
+        self.direction.y = self.jump_m
+
     def update(self):
         self.get_input()
         self.get_status()
         self.animate()
+    # def update(self):
+    #     self.get_input()
+    #     self.rect.x += self.direction.x * self.speed
 
 
 class Tile(pygame.sprite.Sprite):
@@ -106,22 +108,16 @@ class Tile(pygame.sprite.Sprite):
         super().__init__()
         self.image = pygame.Surface((size, size))
         self.rect = self.image.get_rect(topleft=(x, y))
+        self.mask = pygame.mask.from_surface(self.image)
 
     def update(self, x):
         self.rect.x += x
-
-
-# class Tile_con(Tile):
-#     def __init__(self, size, x, y, surface):
-#         super().__init__(size, x, y)
-#         self.image = surface
 
 
 class StaticTile(Tile):
     def __init__(self, size, x, y, surface):
         super().__init__(size, x, y)
         self.image = surface
-        self.mask = pygame.mask.from_surface(self.image)
 
 
 class AnimatedTile(Tile):
@@ -140,6 +136,14 @@ class AnimatedTile(Tile):
     def update(self, x):
         self.animate()
         self.rect.x += x
+
+
+class Coins(AnimatedTile):
+    def __init__(self, size, x, y, path):
+        super().__init__(size, x, y, path)
+        center_x = x + int(size / 2)
+        center_y = y + int(size / 2)
+        self.rect = self.image.get_rect(center=(center_x, center_y))
 
 
 class Jump_m(AnimatedTile):
@@ -167,9 +171,9 @@ class Moonflower(AnimatedTile):
 
 class Enemy(AnimatedTile):
     def __init__(self, size, x, y):
-        super().__init__(size, x, y, "Картинки/enemy")
+        super().__init__(size, x, y, "picture/enemy")
         self.rect.y += size - self.image.get_size()[1]
-        self.speed = randint(1, 2)
+        self.speed = randint(1, 5)
 
     def move(self):
         self.rect.x += self.speed
