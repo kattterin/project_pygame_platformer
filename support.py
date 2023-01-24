@@ -8,17 +8,17 @@ import sys
 from PIL import Image
 
 
-# def import_picture(path):
-#     """
-#     промежуточная функция: изображение -> папка со спрайтами
-#     """
-#     im = Image.open(path)
-#     x = 0
-#     for i in range(8):
-#         im_crop = im.crop((x, 0, x + 64, 64))
-#         im_crop.save(f'picture/enemy/{str(i + 1)}.png', quality=95)
-#         x += 64
-#
+def import_picture(path):
+    """
+    промежуточная функция: изображение -> папка со спрайтами
+    """
+    im = Image.open(path)
+    x = 0
+    for i in range(8):
+        im_crop = im.crop((x, 0, x + 64, 64))
+        im_crop.save(f'picture/enemy/{str(i + 1)}.png', quality=95)
+        x += 64
+
 
 # import_picture("picture/claim.png")
 
