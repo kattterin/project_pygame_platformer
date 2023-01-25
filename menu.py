@@ -97,10 +97,10 @@ levels = [level_1, level_2, level_3, level_4]
 levels_selector = ['1 уровень', '2 уровень', '3 уровень', '4 уровень']
 
 
-class Game():
+class Game:
     def __init__(self, screen):
         global DIFFICULTY
-        print(DIFFICULTY)
+        # print(DIFFICULTY)
         # game attributes
         for i in range(DIFFICULTY + 1, 5):
             CUR.execute(f"UPDATE games_name SET '{int(i)}' = ''"
@@ -110,8 +110,8 @@ class Game():
 
         data = CUR.execute(
             f"""SELECT "1", "2", "3", "4" FROM games_name WHERE name == '{user_name.get_value()}'""").fetchall()[0]
-        print(data, "DA")
-        print(DIFFICULTY, "уровень")
+        # print(data, "DA")
+        # print(DIFFICULTY, "уровень")
         dif = DIFFICULTY
         try:
             self.cur_health = int((data[dif - 1]).split(',')[0])
@@ -119,7 +119,7 @@ class Game():
         except Exception as e:
             self.cur_health = 100
             self.coins = 0
-        print(DIFFICULTY, "after")
+        # print(DIFFICULTY, "after")
 
         self.life = True
         self.max_health = 100
@@ -153,12 +153,11 @@ class Game():
         if DIFFICULTY != 3:
             self.new_level = 1
             DIFFICULTY = DIFFICULTY + 1
-            print("level += 1")
+            # print("level += 1")
 
         else:
             self.new_level = 2  # "конец"
-            print("ККККООООНННННЕЦЦЦЦ")
-
+            # print("ККККООООНННННЕЦЦЦЦ")
 
     def run(self):
         self.level.run()
@@ -224,8 +223,8 @@ def play_function(level='', test: bool = False) -> None:
     global surface, main_menu, menu_music, user_name, selector, DIFFICULTY
     if not user_name.get_value():
         return
-    print(level, 'Level')
-    print("dafsf", DIFFICULTY)
+    # print(level, 'Level')
+    # print("dafsf", DIFFICULTY)
     if level:
         DIFFICULTY = level
     """
@@ -238,7 +237,7 @@ def play_function(level='', test: bool = False) -> None:
     # pygame.quit()
     # pygame.init()
     # main_menu.close()
-    print(user_name.get_value())
+    # print(user_name.get_value())
     main_menu.disable()
     main_menu.full_reset()
 
@@ -295,7 +294,7 @@ def play_function(level='', test: bool = False) -> None:
             # selector.set_value(levels_selector[DIFFICULTY + 1])
             return
         if game.new_level == 2:
-            print(int(DIFFICULTY), "END")
+            # print(int(DIFFICULTY), "END")
             CUR.execute(f"UPDATE games_name SET '{int(DIFFICULTY) + 1}' = '{game.cur_health},{game.coins}'"
                         f" WHERE name == '{user_name.get_value()}'")
             CON.commit()
@@ -345,12 +344,12 @@ def change_username(*args):
         CON.commit()
         selector.hide()
     else:
-        print(data[0][1:-2], "есть")
+        # print(data[0][1:-2], "есть")
         for i, j in enumerate(data[0][1:-2]):
             if j:
                 BUTTONS[i].show()
             else:
-                print('нет уровня', i)
+                # print('нет уровня', i)
                 # START_GAME = i
                 BUTTONS[i].show()
                 [x.hide() for x in BUTTONS[i::]]

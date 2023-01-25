@@ -263,7 +263,6 @@ class Level:
         for sprite in collidable_sprites:
             # if pygame.sprite.collide_mask(sprite, player):
             if sprite.rect.colliderect(player.rect):
-                print('die from water')
                 self.life()
 
     def coin_collissions(self):
@@ -280,7 +279,6 @@ class Level:
 
         for sprite1 in self.portals.sprites():
             if pygame.sprite.collide_mask(player, sprite1):
-                print("NEW")
                 self.change_levels()
 
     def jump_collissions(self):
@@ -296,7 +294,6 @@ class Level:
 
         for i in collidable_sprites:
             if pygame.sprite.collide_mask(i, player):
-                print("kill")
                 player.get_damage()
 
         # if pygame.sprite.collide_mask(self.player.sprite, self.traps):
