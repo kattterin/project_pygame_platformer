@@ -1,0 +1,149 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "1_level.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "1_level.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 1122,
+                "y": 347
+            }
+        },
+        "2_level.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 8,
+            "viewCenter": {
+                "x": 2958,
+                "y": 371
+            }
+        },
+        "3_level.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 2047,
+                "y": 353
+            }
+        },
+        "4_level.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 8,
+            "viewCenter": {
+                "x": 2047,
+                "y": 353
+            }
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/berry.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 0.33
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/claim.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/moon_flowers.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 0.33
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/moonflower.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/mushroom.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/nature 1.tsx": {
+            "scaleInDock": 0.5,
+            "scaleInEditor": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/nature2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/port.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/setup_tiles.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 0.33
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/terrain.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.5,
+            "scaleInEditor": 0.33
+        },
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/trap.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.33,
+            "scaleInEditor": 0.33
+        },
+        "level_01.tmx": {
+            "scale": 0.33,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 1656.060606060606,
+                "y": 353.0303030303031
+            }
+        },
+        "level_01.tmx#setup_tiles": {
+            "scaleInDock": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/3",
+    "last.externalTilesetPath": "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets",
+    "last.imagePath": "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/picture",
+    "map.height": 11,
+    "map.lastUsedExportFilter": "CSV files (*.csv)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 64,
+    "map.tileWidth": 64,
+    "map.width": 64,
+    "openFiles": [
+        "1_level.tmx",
+        "2_level.tmx",
+        "3_level.tmx",
+        "4_level.tmx",
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/port.tsx"
+    ],
+    "project": "64x64_maps.tiled-project",
+    "recentFiles": [
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/port.tsx",
+        "4_level.tmx",
+        "3_level.tmx",
+        "2_level.tmx",
+        "1_level.tmx",
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/nature 1.tsx",
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/terrain.tsx",
+        "level_01.tmx",
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/claim.tsx",
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/mushroom.tsx",
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/moonflower.tsx",
+        "C:/Users/kattterina_i/PycharmProjects/project_pygame_platformer/maps_levels/tilesets/nature2.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 64,
+        "width": 64
+    },
+    "tileset.type": 1
+}
