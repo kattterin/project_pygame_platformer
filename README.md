@@ -1,1 +1,2 @@
-https://github.com/kattterin/project_pygame_platformer
+Платформер
+Управление: клавиши "up", "left", "down", "right"
