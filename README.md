@@ -1,4 +1,4 @@
-<h1 align="center">Это <a href="https://daniilshat.ru/" target="_blank">платформер</a> 
+<h1 align="center">Это платформер</a> 
 
 <h3 align="center">Управление: клавиши "space", "left", "right"</h3>
 
