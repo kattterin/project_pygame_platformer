@@ -265,7 +265,7 @@ class Level:
             if sprite.rect.colliderect(player.rect):
                 self.life()
 
-    def coin_collissions(self):
+    def coin_collisions(self):
         player = self.player.sprite
 
         for sprite1 in self.coins_l.sprites():
@@ -349,7 +349,7 @@ class Level:
         self.get_player_on_ground()
         self.vertical()
         self.check_enemy_collisions()
-        self.coin_collissions()
+        self.coin_collisions()
         self.jump_collissions()
         self.traps_collisions()
         self.water_collisions()

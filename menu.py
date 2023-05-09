@@ -415,12 +415,12 @@ def main(test: bool = False) -> None:
     main_menu = pygame_menu.Menu(
         height=WINDOW_SIZE[1] * 0.7,
         theme=main_theme,
-        title='Main Menu',
+        title='Главное меню',
         width=WINDOW_SIZE[0] * 0.7
     )
 
     main_menu.add.button('Начать', play_function)
-    user_name = main_menu.add.text_input('Name: ', default='', onreturn=change_username, maxchar=10)
+    user_name = main_menu.add.text_input('Имя: ', default='', onreturn=change_username, maxchar=10)
     main_menu.add.button('О программе', about_menu)
     play_submenu = pygame_menu.Menu(
         height=WINDOW_SIZE[1] * 0.5,
@@ -429,7 +429,7 @@ def main(test: bool = False) -> None:
         width=WINDOW_SIZE[0] * 0.7
     )
     for i in range(4):
-        BUTTONS.append(play_submenu.add.button(f'Level {i + 1}', play_function, i))
+        BUTTONS.append(play_submenu.add.button(f'Уровень {i + 1}', play_function, i))
 
     # for i in range(4):
     #     if i in [0]:
@@ -437,7 +437,7 @@ def main(test: bool = False) -> None:
     #     else:
     #         play_submenu.add.button(f'Level {i + 1}', play_function, i)
 
-    play_submenu.add.button('Return to main menu', pygame_menu.events.RESET)
+    play_submenu.add.button('Вернуться', pygame_menu.events.RESET)
 
     selector = main_menu.add.selector('Уровни',
                                       [('1 уровень', 0),
