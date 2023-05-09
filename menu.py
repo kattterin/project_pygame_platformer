@@ -192,7 +192,7 @@ def random_color() -> Tuple[int, int, int]:
 
 
 def Game_over(screen, coins):
-    fon = pygame.transform.scale(load_image('picture/fons/fon.png'), (screen_width, screen_height))
+    fon = pygame.transform.scale(load_image('picture/fons/fon0.jpg'), (screen_width, screen_height))
     screen.blit(fon, (0, 0))
 
     font = pygame.font.Font('picture/ITC.ttf', 80)
@@ -327,7 +327,9 @@ def main_background() -> None:
     Function used by menus, draw on background while menu is active.
     """
     global surface
-    surface.fill((128, 0, 128))
+    fon = pygame.transform.scale(load_image('picture/fons/fon0.jpg'), (screen_width, screen_height))
+    surface.blit(fon, (0, 0))
+    # surface.fill((128, 0, 128))
 
 
 def change_username(*args):
@@ -362,6 +364,7 @@ def change_username(*args):
 BUTTONS = []
 
 
+
 def main(test: bool = False) -> None:
     """
     Main program.
@@ -387,12 +390,15 @@ def main(test: bool = False) -> None:
     # Create menus: Play Menu
     # -------------------------------------------------------------------------
 
-    submenu_theme = pygame_menu.themes.THEME_DEFAULT.copy()
-    submenu_theme.widget_font_size = 15
+    mytheme = pygame_menu.themes.THEME_DEFAULT.copy()
+    mytheme.title_background_color = (0, 0, 0)
+    mytheme.title_bar_style = pygame_menu.widgets.MENUBAR_STYLE_NONE
+    mytheme.background_color = (190, 190, 190, 5)
+    mytheme.widget_font_color  = (190, 190, 190)
     # -------------------------------------------------------------------------
     # Create menus:About
     # -------------------------------------------------------------------------
-    about_theme = pygame_menu.themes.THEME_DEFAULT.copy()
+    about_theme = mytheme.copy()
     about_theme.widget_margin = (0, 0)
 
     about_menu = pygame_menu.Menu(
@@ -410,11 +416,11 @@ def main(test: bool = False) -> None:
     # -------------------------------------------------------------------------
     # Create menus: Main
     # -------------------------------------------------------------------------
-    main_theme = pygame_menu.themes.THEME_DEFAULT.copy()
+    # main_theme = pygame_menu.themes.THEME_DEFAULT.copy()
 
     main_menu = pygame_menu.Menu(
         height=WINDOW_SIZE[1] * 0.7,
-        theme=main_theme,
+        theme=mytheme,
         title='Главное меню',
         width=WINDOW_SIZE[0] * 0.7
     )
@@ -424,8 +430,8 @@ def main(test: bool = False) -> None:
     main_menu.add.button('О программе', about_menu)
     play_submenu = pygame_menu.Menu(
         height=WINDOW_SIZE[1] * 0.5,
-        theme=submenu_theme,
-        title='Submenu',
+        theme=mytheme,
+        title='Уровни',
         width=WINDOW_SIZE[0] * 0.7
     )
     for i in range(4):
